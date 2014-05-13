@@ -1,0 +1,457 @@
+html {	
+   background-image:url(../img/diagonales_decalees.png);
+	background-repeat:repeat;
+  	font-size: 100%;
+ 	 -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
+}
+
+
+
+.container {
+	background:rgba(200, 200, 200, 0.2);
+    padding: 15px;
+	/*background-image:url(../img/diagonales_decalees.png);*/
+}
+
+
+#line1
+{height: 90px;}
+
+#line2
+{margin-top:15px;}
+
+
+/* pour faire apparaître la mise en page */
+.span1{height: 30px;background-color:#0CA;}
+.span2{height: 180px;background-color:#5CF;}
+.span3{height: 30px;background-color:#3CF;}
+/*.span4{height: 333px;}*/
+.span5{height: 30px;background-color:#ACF;}
+.span6{height: 30px;background-color:#06F;}
+.span7{height: 30px;background-color:#09B;}
+/*.span8{height: 268px;}*/
+.span9{height: 30px;background-color:#4C1;}
+.span10{height: 30px;background-color:#9CD;}
+.span11{height: 30px;background-color:#DBD;}
+.span12{height: 30px;}
+
+/* transparence*/
+.navbar-inner, h5.titleblog{
+   background:rgba(150, 150, 150, 0.3);
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.015);
+  -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.015);
+   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.015);
+}
+
+
+
+
+
+/*NAVBAR*/
+.navbar-inner {
+  height: 30px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background-repeat: repeat-x;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  font-family: 'Vera-Bold', Helvetica, Arial, sans-serif;
+}
+
+
+/*SLIDER*/
+.slide-height{
+	height: 331px;
+}
+
+
+/*SIDEBAR*/
+a.accordion-toggle {
+  background-color: #fff;
+  opacity: 0.8;
+  border: 1px solid #999999;
+  padding-left: 10px;
+
+}
+
+.accordion-inner {
+  background-color: #fff;
+}
+
+.span4.accordeons{
+	height: 80px;
+	position: relative;
+	font-family: 'Vera-Bold', Helvetica, Arial, sans-serif;
+}
+
+.span4.welcome  {
+	background:rgba(150, 150, 150, 0.3);
+	height: 238px;
+	margin-top: 15px;
+}
+
+.span4.welcome p {color: #FFFFFF;}
+
+
+.span4.welcome, a.accordion-toggle, .span8.welcome, h5.titleblog
+{
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+        
+}
+
+.welcome h4, .welcome p {
+	padding: 15px;
+	color:#888;
+	text-align: justify;
+
+}
+
+
+#tab-categ1, #tab-categ2, #tab-categ3 {
+	background:#CCCCCC;
+	padding-left:15px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: #777777;
+	cursor: pointer;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #cccccc;
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #cccccc;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #cccccc;
+	}
+
+#tabOne, #tabTwo, #tabThree{
+	padding: 5px;
+	background:rgba(250, 250, 250, 0.9);
+	}
+	
+.side-list{
+	list-style-type: none;
+	margin : 0;
+	padding: 10px;
+	padding-left: 23px;
+	text-transform: uppercase;
+	font-size: 0.9em;
+	font-family: 'Vera-Bold', Helvetica, Arial, sans-serif;
+}
+
+.side-list li{
+	margin-bottom : 5px;
+}
+
+.nav-list > .active > a {
+    background-color: #069;
+}
+.nav-list{
+	padding-left: 23px;
+}
+
+
+			
+/* BLOCS */
+
+#bloc-inter{
+	height: 50px;
+	margin-top: 5px;
+	background:rgba(150, 150, 150, 0.3);
+}
+
+.btn-right{margin-left:170px;}
+
+h5.margin-bloc
+{margin-left:60px;}
+
+h5.titleblog {padding-left:6px;}
+h5.titlectg{font-size:12px;}
+
+h5.titleblog, h5.titlectg{
+	padding-bottom:3px;
+	color: #666666;
+	font-family: 'Vera-Bold', Helvetica, Arial, sans-serif;
+	margin:0;
+	}
+	
+
+.space{width: auto; height:19px;}
+	
+ .titleblogpage {
+	padding-bottom:3px;
+	padding-left:3px;
+	color: #444444;
+	font-family: 'Vera-Bold', Arial, sans-serif;
+ }
+
+p.margin-bloc
+{margin-left:60px;}
+
+
+.thumbnail {
+    background: #ffffff; 
+    opacity: 0.8;
+    filter:alpha(opacity=8);
+    text-align: justify;
+    text-justify: inter-character;
+    }
+.thumbnail p {padding:5px;}
+.thumbnailhomey {margin-right: 18px;}
+
+.blogblock{
+            background: #ffffff;
+            border: 1px solid #ddd;
+			padding-bottom: 7px;
+}
+
+
+
+h4.title-blg, h4.title-side{
+	color: #888;
+	font-weight: 900;
+	font-family: 'Vera-Bold', Helvetica, Arial, sans-serif;
+	text-transform: uppercase;
+	background:rgba(150, 150, 150, 0.3);
+	width: 600px;
+	padding: 5px;
+	padding-left: 15px;
+}
+
+h4.title-side{
+	width: 280px;
+}
+
+
+.rowfluidblog {width:620px; padding: 0; margin: 0;}
+
+
+.videohome{
+	width:290px;
+	height: 193px;
+}
+
+.videohome2{
+	width:188px;
+	height: 125px;
+}
+
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	/*padding-top: 25px;*/
+	height: auto;
+}
+
+.ban-vid{
+	margin-top:56px;
+	
+}
+
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+
+/*Pages*/
+.imgpage {margin-right: 8px;}
+.blcpage{padding: 10px;
+         min-height: 200px;}
+
+ 
+ .span4.blocside {
+	background:#FFFFFF;
+	margin-left: 2px;
+	height: 343px;
+	margin-top: 2px;
+ }
+ 
+.hrpage{
+	padding:0;
+	margin:0;
+
+}
+
+
+p.descr-space-l{
+	margin-top: 75px;
+}
+
+p.descr-space-vid {
+	margin-top: 15px;
+}
+ /* Gallery
+-------------------------------------------------------------- */
+
+ul.gallery {
+	margin:20px auto 0px auto;
+	padding:0;
+	text-align:center;
+}
+
+ul.gallery.small { margin:30px auto 0px auto; }
+
+ul.gallery li {
+	display:inline-block;
+	padding:10px;
+	margin:13px 13px;
+	font-size: 14px;
+	font-weight:bold;
+	color:#98abb6;
+	text-transform: uppercase;
+	border:1px solid #cccece;
+	text-align:center;	
+	background-color:#f8f8f8;
+	position:relative;
+	
+	/* CSS3 */
+	-webkit-text-shadow: #ffffff 1px 1px;
+	   -moz-text-shadow: #ffffff 1px 1px;
+			text-shadow: #ffffff 1px 1px;
+	-webkit-box-shadow: 0 3px 2px 1px rgba(0, 0, 0, 0.03);
+	   -moz-box-shadow: 0 3px 2px 1px rgba(0, 0, 0, 0.03);
+			box-shadow: 0 3px 2px 1px rgba(0, 0, 0, 0.03);
+}
+
+ul.gallery.small li { margin:7px 5px; }
+
+ul.gallery li img {
+	margin:0;
+	display:block;
+}
+
+ul.gallery li .actions {display:none;}
+
+ul.gallery li a.view,
+ul.gallery li a.edit,
+ul.gallery li a.delete {
+	background-repeat:no-repeat;
+	background-position:0px 0px;
+	width:84px;
+	height:84px;
+	display:block;
+	position:absolute;
+	text-indent:-9999px;
+	z-index:1;
+}
+
+ul.gallery.small li a.view,
+ul.gallery.small li a.edit,
+ul.gallery.small li a.delete {
+	width:45px;
+	height:44px;
+}
+
+ul.gallery li a.edit,
+ul.gallery li a.view {
+	top:30%;
+}
+
+ul.gallery li a.edit {
+	background-image:url(../img/icon_round_big_edit.png);
+	left:22%;
+}
+
+ul.gallery.small li a.edit {
+	background-image:url(../img/icon_round_edit.png);
+	left:22%;
+}
+
+ul.gallery li a.view {
+	background-image:url(../img/icon_round_big_view.png);
+	right:22%;
+	z-index:2;
+}
+
+ul.gallery.small li a.view {
+	background-image:url(../img/icon_round_view.png);
+	right:22%;
+	z-index:2;
+}
+
+ul.gallery li a.edit:hover,
+ul.gallery li a.view:hover {
+	background-position:0px -84px;
+}
+
+ul.gallery.small li a.edit:hover,
+ul.gallery.small li a.view:hover {
+	background-position:0px -44px;
+}
+
+ul.gallery li a.delete {
+	background-image:url(../img/icon_round_big_delete.png);
+	width:33px;
+	height:33px;
+	right:-10px;
+	top:-10px;
+}
+
+ul.gallery.small li a.delete {
+	background-image:url(../img/icon_round_delete.png);
+	width:19px;
+	height:19px;
+	right:-5px;
+	top:-5px;
+}
+
+ul.gallery li a.delete:hover {
+	background-position:0px -33px;
+}
+
+ul.gallery.small li a.delete:hover {
+	background-position:0px -19px;
+}
+
+ul.gallery li:hover {
+	/* CSS3 */
+	-webkit-box-shadow: 0px 3px 2px 1px rgba(0, 0, 0, 0.05);
+	   -moz-box-shadow: 0px 3px 2px 1px rgba(0, 0, 0, 0.05);
+			box-shadow: 0px 3px 2px 1px rgba(0, 0, 0, 0.05);
+}
+ 
+ /* Sticky footer styles
+      -------------------------------------------------- */
+
+      html,
+      body {
+        height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
+      }
+
+      /* Wrapper for page content to push down footer */
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by it's height */
+        margin: 0 auto -60px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #push,
+      #footer {
+        height: 20px;
+		margin-top:20px;
+      }
+ 
+
+      /* Lastly, apply responsive CSS fixes as necessary */
+      @media (max-width: 767px) {
+        #footer {
+          margin-left: -20px;
+          margin-right: -20px;
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+      }
+	  
+	 div.container.stick{
+		background: none;
+		height: 30px;
+	  }
+	  
+	  /*---------------------------------------------------*/

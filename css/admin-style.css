@@ -1,0 +1,21 @@
+table{width:auto;}
+#addPostTable, th, tr, td{
+			border:solid 1px;
+			color:#555555;
+			border-collapse:collapse;	
+			padding:2px;
+			font-size:12px;
+			}
+
+#affichePost, th, tr, td{
+			border:solid 1px;
+			color:#555555;
+			border-collapse:collapse;	
+			padding:5px;	
+			font-size:12px;	
+}
+
+table.arrows {
+	border: 0;
+}
+
