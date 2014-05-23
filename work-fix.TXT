@@ -108,3 +108,22 @@
 					<img src="img/work/gallery/thumbs/image_09.png" alt="" />
 				</a>
 			</li>
+
+
+_________________________
+
+
+<!-- Big Gallery Image: Start -->
+			<?php do { ?>
+			<li data-type="<?php echo $row_jx_works['subcatIdWork']; ?>" data-id="<?php echo $row_jx_works['idWork']; ?>">
+				<div class="actions">
+					<!--a href="#" class="delete">delete</a-->
+					<!--a href="#" class="edit">edit</a-->
+					<a href="img/work/thumbs/<?php echo $row_jx_works['imagethWork']; ?>" class="view popup">view</a>
+				</div>
+				<a href="img/work/thumbs/<?php echo $row_jx_works['imagethWork']; ?>" class="popup">
+					<img src="img/work/thumbs/<?php echo $row_jx_works['imagethWork']; ?>" alt="<?php echo $row_jx_works['titleWork']; ?>" width="243px" height="203px"/>
+				</a>
+			</li>
+			<?php } while ($row_jx_works = mysql_fetch_assoc($jx_works)); ?>
+			<!-- Big Gallery Image: End -->

@@ -4,20 +4,15 @@ require_once('connect/cn-boos.php');
 $url="";
 
 mysql_select_db($database_cn_bwdkadw, $cn_bwdkadw);
-$query_jx_subcats =" 
+
+/*$query_jx_subcats =" 
 		SELECT idSubcat, nomSubcat
 		FROM subcats 
 		";
 $jx_subcats = mysql_query($query_jx_subcats, $cn_bwdkadw) or die(mysql_error());
-$totalRows_jx_subcats = mysql_num_rows($jx_subcats);
+$totalRows_jx_subcats = mysql_num_rows($jx_subcats);*/
 
 
-$query_jx_categories =" 
-		SELECT *
-		FROM categorie 
-		";
-$jx_categories = mysql_query($query_jx_categories, $cn_bwdkadw) or die(mysql_error());
-$totalRows_jx_categories = mysql_num_rows($jx_categories);
 
 $maxRows_jx_works = 9;
 $pageNum_jx_works = 0;
@@ -35,15 +30,21 @@ if (isset($_GET['totalRows_jx_works'])) {
 }
 $totalPages_jx_works = ceil($totalRows_jx_works/$maxRows_jx_works)-1;
 
-
+/* cn works */
 $query_jx_works = "
-	SELECT w.idWork, w.titleWork, YEAR(w.dateWork) AS annee, DAYOFMONTH(w.dateWork) AS jour, MONTH(w.dateWork) AS mois, w.imagethWork, w.subcatIdWork
-    FROM works w, subcats s
-	WHERE w.subcatIdWork = s.idSubcat
-    ORDER BY dateWork DESC";//Requête BDD permettant de récupérer toutes les works de la base
+	SELECT * FROM works w LEFT JOIN categorie c ON (c.idCategorie = w.idCategorie) ORDER BY dateWork DESC";//Requête BDD permettant de récupérer toutes les works de la base
 $jx_works = mysql_query($query_jx_works, $cn_bwdkadw) or die(mysql_error());//Ressource contenant les résultats de la requête précédente
 $row_jx_works = mysql_fetch_assoc($jx_works);// enlever cette ligne pour voir s'afficher le premier enregistrement
 $totalRows_jx_works = mysql_num_rows($jx_works);
+
+/* cn categorie */
+$query_jx_cat ="
+		SELECT *
+		FROM categorie 
+		";
+$jx_cat = mysql_query($query_jx_cat, $cn_bwdkadw) or die(mysql_error());
+$row_jx_cat = mysql_fetch_assoc($jx_cat);
+$totalRows_jx_cat = mysql_num_rows($jx_cat);
 
 ?>
 <!--DOCTYPE-->
@@ -69,12 +70,9 @@ $totalRows_jx_works = mysql_num_rows($jx_works);
 		
 		<!-- Big Gallery Sorting: Start -->
 		<ul class="sorting">
-			<li><a href="#" data-type="all" class="active">All</a></li>
 		<?php do {  ?>
-			<li><a href="#" data-type="<?php echo $row_jx_subcats['idSubcat']; ?>"><?php echo $row_jx_subcats['nomSubcat']; ?></a></li>
-			<!--li><a href="#" data-type="streets">Streets</a></li>
-			<li><a href="#" data-type="nature">Nature</a></li-->
-		<?php } while ($row_jx_subcats = mysql_fetch_assoc($jx_subcats)); ?>
+			<li><a href="#" data-type="<?php echo $row_jx_cat['idCategorie']; ?>"><?php echo $row_jx_cat['nomCategorie']; ?></a></li>
+		<?php } while ($row_jx_cat = mysql_fetch_assoc($jx_cat)); ?>
 		</ul>
 		
 		<!-- Big Gallery Sorting: End -->
@@ -88,13 +86,11 @@ $totalRows_jx_works = mysql_num_rows($jx_works);
 		<!-- Big Gallery Content: Start -->
 		<ul class="gallery">
 			
-			<!-- Big Gallery Image: Start -->
+		<!-- Big Gallery Image: Start -->
 			<?php do { ?>
-			<li data-type="<?php echo $row_jx_works['subcatIdWork']; ?>" data-id="<?php echo $row_jx_works['idWork']; ?>">
+			<li data-type="<?php echo $row_jx_works['idCategorie']; ?>" data-id="<?php echo $row_jx_works['idWork']; ?>">
 				<div class="actions">
-					<!--a href="#" class="delete">delete</a-->
-					<!--a href="#" class="edit">edit</a-->
-					<a href="img/work/thumbs/<?php echo $row_jx_works['imagethWork']; ?>" class="view popup">view</a>
+					<a href="img/work/thumbs/<?php echo $row_jx_works['imagethWork']; ?>" class="view popup">View</a>
 				</div>
 				<a href="img/work/thumbs/<?php echo $row_jx_works['imagethWork']; ?>" class="popup">
 					<img src="img/work/thumbs/<?php echo $row_jx_works['imagethWork']; ?>" alt="<?php echo $row_jx_works['titleWork']; ?>" width="243px" height="203px"/>
@@ -108,7 +104,7 @@ $totalRows_jx_works = mysql_num_rows($jx_works);
 		
 		<!-- Big Gallery Footer: Start -->
 		<div class="padding">
-			<button>Add Image to Gallery</button>
+			
 			
 			<!-- Pagination: Start -->
 			<ul class="pagination right nomargin">
