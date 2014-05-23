@@ -173,7 +173,7 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
 <!--ZONE CONTENT-->
 
 <div class="row-fluid">
-<a href="admin.php">Vers Ajout d'articles</a> - <a href="admin.php">Vers Ajout de slides</a>
+<a href="admin.php"><button>Vers Ajout d'articles</button></a> &nbsp; <a href="admin.php"><button>Vers Ajout de slides</button></a>
 <hr style="border-top:solid #CCCCCC 1px;"/>
 <table border="1" cellpadding="1" cellspacing="1" id="afficheSlides" class="table-striped">
    <tr>

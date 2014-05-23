@@ -5,12 +5,14 @@ $url="";
 
 mysql_select_db($database_cn_bwdkadw, $cn_bwdkadw);
 
-/*$query_jx_subcats =" 
+/*
+$query_jx_subcats =" 
 		SELECT idSubcat, nomSubcat
 		FROM subcats 
 		";
 $jx_subcats = mysql_query($query_jx_subcats, $cn_bwdkadw) or die(mysql_error());
-$totalRows_jx_subcats = mysql_num_rows($jx_subcats);*/
+$totalRows_jx_subcats = mysql_num_rows($jx_subcats);
+*/
 
 
 

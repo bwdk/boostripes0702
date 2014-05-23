@@ -173,7 +173,7 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
 
 <!--ZONE CONTENT-->
 <div class="row-fluid">
-<a href="add-work.php">Vers Ajout de works</a> - <a href="add-slide.php">Vers Ajout de slides</a>
+<a href="add-work.php"><button>Vers Ajout de works</button></a> &nbsp; <a href="add-slide.php"><button>Vers Ajout de slides</button></a>
 <hr style="border-top:solid #CCCCCC 1px;"/>
 	<table border="1" cellpadding="1" cellspacing="1" id="affichePost" class="table-striped">
 <?php 
@@ -183,6 +183,8 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
         $sDescription = substr($row_jx_news['descriptionNews'],0,MAX_LENGHT_NEWS_PREVIEW).'...';
 		}
 ?>
+
+
    <tr>
    	<th>Image</th>
     <th>Titre</th>
@@ -275,7 +277,7 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
     
     <tr valign="baseline">	
           <td align="right">Poster</td>
-          <td><input name="Submit" type="submit" id="Submit" value="OK" /></td>
+          <td><input name="Submit" type="submit" id="Submit" value="OK"/></td>
           <input type="hidden" name="MM_insert" value="form" />
     </tr>    
 </table>    
