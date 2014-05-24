@@ -32,12 +32,14 @@ if (isset($_GET['totalRows_jx_works'])) {
 }
 $totalPages_jx_works = ceil($totalRows_jx_works/$maxRows_jx_works)-1;
 
+
 /* cn works */
 $query_jx_works = "
 	SELECT * FROM works w LEFT JOIN categorie c ON (c.idCategorie = w.idCategorie) ORDER BY dateWork DESC";//Requête BDD permettant de récupérer toutes les works de la base
 $jx_works = mysql_query($query_jx_works, $cn_bwdkadw) or die(mysql_error());//Ressource contenant les résultats de la requête précédente
 $row_jx_works = mysql_fetch_assoc($jx_works);// enlever cette ligne pour voir s'afficher le premier enregistrement
 $totalRows_jx_works = mysql_num_rows($jx_works);
+
 
 /* cn categorie */
 $query_jx_cat ="
@@ -68,7 +70,7 @@ $totalRows_jx_cat = mysql_num_rows($jx_cat);
 	<!-- Box Header: Start -->
 	<div class="box_top">
 		
-		<h2 class="title-work">Work<span>129</span></h2>
+		<h2 class="title-work">Work<span><?php echo $totalRows_jx_works; ?></span></h2>
 		
 		<!-- Big Gallery Sorting: Start -->
 		<ul class="sorting">

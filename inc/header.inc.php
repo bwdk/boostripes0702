@@ -12,7 +12,7 @@
 <div class="container">
     <div class="row-fluid">
 		<div class="span12" id="line1">
-			<a href="<?php echo $url; ?>index.php"><img src="<?php echo $url; ?>img/kblogo.png&" alt="logo" class="logo" width=""/></a>
+			<a href="<?php echo $url; ?>index.php"><img src="<?php echo $url; ?>img/kblogo.png" alt="logo" class="logo" width=""/></a>
 		</div>
                     
     </div>
