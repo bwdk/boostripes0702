@@ -182,22 +182,7 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
 		   echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
   Article <strong>'.$row_jx_news['titreNews'].'</strong> ajouté.</div>';
 		   }
-/* test */		   
-    if(($_POST['title'] != '') && ($_POST['text'] != ''))
-    {
-        echo 'Nooon';
-        }
-        else
-        {
-            echo 'L\'adresse email n\'est pas bonne !';
-        }
-    }
-    else
-    {
-        echo 'Au moins un des deux champ est vide ...';
-    }
-}	
-/* */		   
+	   
 		   
 ?>
 
