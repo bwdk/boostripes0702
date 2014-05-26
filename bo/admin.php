@@ -173,8 +173,20 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
 
 <!--ZONE CONTENT-->
 <div class="row-fluid">
-<a href="add-work.php">Vers Ajout de works</a> - <a href="add-slide.php">Vers Ajout de slides</a>
+<a href="add-work.php"><button>Vers Ajout de works</button></a> &nbsp; <a href="add-slide.php"><button>Vers Ajout de slides</button></a>
 <hr style="border-top:solid #CCCCCC 1px;"/>
+
+<?php
+	if($_SERVER['REQUEST_METHOD'] == 'POST')
+		{
+		   echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  Article <strong>'.$row_jx_news['titreNews'].'</strong> ajouté.</div>';
+		   }
+	   
+		   
+?>
+
+
 	<table border="1" cellpadding="1" cellspacing="1" id="affichePost" class="table-striped">
 <?php 
 
@@ -183,6 +195,8 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
         $sDescription = substr($row_jx_news['descriptionNews'],0,MAX_LENGHT_NEWS_PREVIEW).'...';
 		}
 ?>
+
+
    <tr>
    	<th>Image</th>
     <th>Titre</th>
@@ -224,6 +238,9 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
 </div>
 
 <div class="row-fluid">
+
+
+
 <hr style="border-top:solid #CCCCCC 1px;"/>
 
 <h4>Add article : <span style="color:#A3ADED;"></span></h4>
@@ -249,6 +266,8 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
             <option value="<?php echo $row_jx_categories['idCategorie']; ?>"><?php echo $row_jx_categories['nomCategorie']; ?></option>
     <?php
     }
+	
+
     ?>
         </select></td>
     </tr>
@@ -275,7 +294,7 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
     
     <tr valign="baseline">	
           <td align="right">Poster</td>
-          <td><input name="Submit" type="submit" id="Submit" value="OK" /></td>
+          <td><input name="Submit" type="submit" id="Submit" value="OK"/></td>
           <input type="hidden" name="MM_insert" value="form" />
     </tr>    
 </table>    

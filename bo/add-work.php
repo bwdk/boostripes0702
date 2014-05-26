@@ -44,10 +44,10 @@ if (isset($_SERVER['QUERY_STRING'])) {
 $erreur=""; // initialisation de la variable erreur	
 /* insert works */
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form")) {
-  $insertSQL = sprintf("INSERT INTO works (idWork, titleWork, subcatIdWork, imagethWork) VALUES (%s, %s, %s, %s)",
+  $insertSQL = sprintf("INSERT INTO works (idWork, titleWork, idCategorie, imagethWork) VALUES (%s, %s, %s, %s)",
 					   GetSQLValueString($_POST['idwork'], "int"),
                        GetSQLValueString($_POST['titlework'], "text"),
-					   GetSQLValueString($_POST['subcat'], "text"),
+					   GetSQLValueString($_POST['idcategorie'], "text"),
                        GetSQLValueString($_FILES['previewthwork']['name'], "text"));
  
  
@@ -120,7 +120,7 @@ mysql_select_db($database_cn_bwdkadw, $cn_bwdkadw);
 
 
 /* cn works */
-$query_jx_works = "SELECT * FROM works ORDER BY dateWork DESC";
+$query_jx_works = "SELECT * FROM works w LEFT JOIN categorie c ON (c.idCategorie = w.idCategorie) ORDER BY dateWork DESC";
 $query_limit_jx_works = sprintf("%s LIMIT %d, %d", $query_jx_works, $startRow_jx_works, $maxRows_jx_works);
 $jx_works = mysql_query($query_limit_jx_works, $cn_bwdkadw) or die(mysql_error());
 $row_jx_works = mysql_fetch_assoc($jx_works);
@@ -151,8 +151,8 @@ $queryString_jx_works = sprintf("&totalRows_jx_works=%d%s", $totalRows_jx_works,
 
 
 /* cn subcats */
-$query_jx_subcats = "SELECT idSubcat, nomSubcat FROM subcats";
-$jx_subcats = mysql_query($query_jx_subcats, $cn_bwdkadw) or die(mysql_error());
+$query_jx_cat = "SELECT * FROM categorie";
+$jx_cat = mysql_query($query_jx_cat, $cn_bwdkadw) or die(mysql_error());
 
 
 // substring
@@ -173,7 +173,7 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
 <!--ZONE CONTENT-->
 
 <div class="row-fluid">
-<a href="admin.php">Vers Ajout d'articles</a> - <a href="admin.php">Vers Ajout de slides</a>
+<a href="admin.php"><button>Vers Ajout d'articles</button></a> &nbsp; <a href="admin.php"><button>Vers Ajout de slides</button></a>
 <hr style="border-top:solid #CCCCCC 1px;"/>
 <table border="1" cellpadding="1" cellspacing="1" id="afficheSlides" class="table-striped">
    <tr>
@@ -190,7 +190,7 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
     <td><?php echo $row_jx_works['idWork']; ?></td>
   	<td><a href="../work.php"><img src="../img/work/thumbs/<?php echo $row_jx_works['imagethWork']; ?>" alt="<?php echo $row_jx_works['titleWork']; ?>" width="60"/></a></td>
   	<td><?php echo $row_jx_works['titleWork']; ?></td>
-	<td><?php echo $row_jx_works['subcatIdWork']; ?></td>
+	<td><?php echo $row_jx_works['idCategorie']; ?></td>
 	<td><?php echo $row_jx_works['dateWork']; ?></td>
 	<td><a href="edit-work.php?idEdit3=<?php echo $row_jx_works['idWork']; ?>">OK</a></td> 
 	<td><a href="add-work.php?idWork=<?php echo $row_jx_works['idWork']; ?>">OK</a></td>  
@@ -225,13 +225,13 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
         <td><input name="titlework" type="text" id="tltslide" class="fields_admin" value="" size="32" /></td>
     </tr>
 	<tr valign="baseline">
-          <td align="right">Sub-category</td>
-        <td><select name="subcat" id="subcat" class="fields_admin">
+          <td align="right">Catégorie</td>
+        <td><select name="idcategorie" id="idcategorie" class="fields_admin">
 		 <?php
-    for($i = 0; $i < mysql_num_rows($jx_subcats); $i++ ){
-        $row_jx_subcats = mysql_fetch_array($jx_subcats, MYSQL_ASSOC); //Recupere dans un tableau une sous-cat
+    for($i = 0; $i < mysql_num_rows($jx_cat); $i++ ){
+        $row_jx_cat = mysql_fetch_array($jx_cat, MYSQL_ASSOC); //Recupere dans un tableau une cat
     ?>
-		<option value="<?php echo $row_jx_subcats['idSubcat']; ?>"><?php echo $row_jx_subcats['nomSubcat']; ?></option>
+		<option value="<?php echo $row_jx_cat['idCategorie']; ?>"><?php echo $row_jx_cat['nomCategorie']; ?></option>
 		<?php
     }
     ?>
@@ -246,7 +246,7 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
 	
     <tr valign="baseline">	
           <td align="right">Valider</td>
-          <td><input name="Submit" type="submit" id="Submit" value="Poster" /></td>
+          <td><input name="Submit" type="submit" id="Submit" value="Add Image to Gallery" /></td>
           <input type="hidden" name="MM_insert" value="form" />
     </tr>   
 </table>    
