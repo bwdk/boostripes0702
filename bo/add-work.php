@@ -164,7 +164,7 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
  <!--DOCTYPE-->
  
  <?php require_once ($url."inc/doctype.inc.php");?>
-<title>AdminSide Add Work</title>
+<title>ADMIN Add Work</title>
 
 <!--HEADER-->
 <?php require_once ($url."inc/header.inc.php");?>
