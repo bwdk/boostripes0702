@@ -125,6 +125,7 @@ $query_limit_jx_works = sprintf("%s LIMIT %d, %d", $query_jx_works, $startRow_jx
 $jx_works = mysql_query($query_limit_jx_works, $cn_bwdkadw) or die(mysql_error());
 $row_jx_works = mysql_fetch_assoc($jx_works);
 
+//
 if (isset($_GET['totalRows_jx_works'])) {
   $totalRows_jx_works = $_GET['totalRows_jx_works'];
 } else {
@@ -148,7 +149,7 @@ if (!empty($_SERVER['QUERY_STRING'])) {
   }
 }
 $queryString_jx_works = sprintf("&totalRows_jx_works=%d%s", $totalRows_jx_works, $queryString_jx_works);
-
+//
 
 /* cn subcats */
 $query_jx_cat = "SELECT * FROM categorie";
@@ -175,7 +176,7 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
 <div class="row-fluid">
 <a href="admin.php"><button>Vers Ajout d'articles</button></a> &nbsp; <a href="admin.php"><button>Vers Ajout de slides</button></a>
 <hr style="border-top:solid #CCCCCC 1px;"/>
-<table border="1" cellpadding="1" cellspacing="1" id="afficheSlides" class="table-striped">
+<table border="1" cellpadding="1" cellspacing="1" id="afficheWorks" class="table-striped">
    <tr>
     <th>Id</th>
    	<th>Image</th>

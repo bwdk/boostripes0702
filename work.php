@@ -1,61 +1,10 @@
 <?php 
 
 require_once('connect/cn-boos.php'); 
+
 $url="";
 
 mysql_select_db($database_cn_bwdkadw, $cn_bwdkadw);
-
-/*
-$query_jx_subcats =" 
-		SELECT idSubcat, nomSubcat
-		FROM subcats 
-		";
-$jx_subcats = mysql_query($query_jx_subcats, $cn_bwdkadw) or die(mysql_error());
-$totalRows_jx_subcats = mysql_num_rows($jx_subcats);
-*/
-
-/////////////// Imports des fichiers de pagination/DB
-    include_once('fonctions/paginate.php');
-	// Calcul du nombre total d'entrées $total dans la table pagination
-    $res = mysqli_query($database, 'SELECT COUNT(*) FROM work');
-    $row = mysqli_fetch_row($res);
-    $total = $row[0];
-	
-	// Libération de la mémoire associée au résultat
-    mysqli_free_result($res);
-	
-	$epp = 3; // nombre d'entrées à afficher par page (entries per page)
-    $nbPages = ceil($total/$epp); // calcul du nombre de pages $nbPages (on arrondit à l'entier supérieur avec la fonction ceil())
-	
-/////////////////////////////////////////////	
-	
-	
-	
-	
-
-$maxRows_jx_works = 9;
-$pageNum_jx_works = 0;
-if (isset($_GET['pageNum_jx_works'])) {
-  $pageNum_jx_works = $_GET['pageNum_jx_works'];
-}
-$startRow_jx_works = $pageNum_jx_works * $maxRows_jx_works;
-
-
-if (isset($_GET['totalRows_jx_works'])) {
-  $totalRows_jx_works = $_GET['totalRows_jx_works'];
-} else {
-  $all_jx_works = mysql_query($query_jx_works);
-  $totalRows_jx_works = mysql_num_rows($all_jx_works);
-}
-$totalPages_jx_works = ceil($totalRows_jx_works/$maxRows_jx_works)-1;
-
-
-/* cn works */
-$query_jx_works = "
-	SELECT * FROM works w LEFT JOIN categorie c ON (c.idCategorie = w.idCategorie) ORDER BY dateWork DESC";//Requête BDD permettant de récupérer toutes les works de la base
-$jx_works = mysql_query($query_jx_works, $cn_bwdkadw) or die(mysql_error());//Ressource contenant les résultats de la requête précédente
-$row_jx_works = mysql_fetch_assoc($jx_works);// enlever cette ligne pour voir s'afficher le premier enregistrement
-$totalRows_jx_works = mysql_num_rows($jx_works);
 
 
 /* cn categorie */
@@ -66,6 +15,15 @@ $query_jx_cat ="
 $jx_cat = mysql_query($query_jx_cat, $cn_bwdkadw) or die(mysql_error());
 $row_jx_cat = mysql_fetch_assoc($jx_cat);
 $totalRows_jx_cat = mysql_num_rows($jx_cat);
+
+
+/* cn works */
+$query_jx_works = "
+	SELECT * FROM works w LEFT JOIN categorie c ON (c.idCategorie = w.idCategorie) ORDER BY dateWork DESC";//Requête BDD permettant de récupérer toutes les works de la base
+$jx_works = mysql_query($query_jx_works, $cn_bwdkadw) or die(mysql_error());//Ressource contenant les résultats de la requête précédente
+$row_jx_works = mysql_fetch_assoc($jx_works);// enlever cette ligne pour voir s'afficher le premier enregistrement
+$totalRows_jx_works = mysql_num_rows($jx_works);
+
 
 ?>
 <!--DOCTYPE-->
@@ -119,7 +77,7 @@ $totalRows_jx_cat = mysql_num_rows($jx_cat);
 			</li>
 			<?php } while ($row_jx_works = mysql_fetch_assoc($jx_works)); ?>
 			<!-- Big Gallery Image: End -->
-			
+
 		</ul>
 		<!-- Gallery Content: End -->
 		
@@ -127,7 +85,7 @@ $totalRows_jx_cat = mysql_num_rows($jx_cat);
 		<div class="padding">
 			
 			
-			<!-- Pagination: Start -->
+			<!-- Pagination: Start >
 			<ul class="pagination right nomargin">
 				<li><a href="#" class="active">1</a></li>
 				<li><a href="#">2</a></li>
@@ -135,50 +93,15 @@ $totalRows_jx_cat = mysql_num_rows($jx_cat);
 				<li><a href="#">4</a></li>
 				<li><a href="#">5</a></li>
 				<li><a href="#">Next</a></li>
-			</ul>
-<?php			
-			  // Récupération du numéro de la page courante depuis l'URL avec la méthode GET
-    // S'il s'agit d'un nombre on traite, sinon on garde la valeur par défaut : 1
-    $current = 1;
-    if (isset($_GET['p']) && is_numeric($_GET['p'])) {
-        $page = intval($_GET['p']);
-        if ($page >= 1 && $page <= $nbPages) {
-            // cas normal
-            $current=$page;
-        } else if ($page < 1) {
-            // cas où le numéro de page est inférieure 1 : on affecte 1 à la page courante
-            $current=1;
-        } else {
-            //cas où le numéro de page est supérieur au nombre total de pages : on affecte le numéro de la dernière page à la page courante
-            $current = $nbPages;
-        }
-    }
- 
-    // $start est la valeur de départ du LIMIT dans notre requête SQL (dépend de la page courante)
-    $start = ($current * $epp - $epp);
- 
-    // Récupération des données à afficher pour la page courante
-    $qry = "SELECT p_text FROM work LIMIT $start, $epp";
-    $res = @mysqli_query($dbc, $qry);
- 
-    if ($res) {
-        // Affichage des données
-        echo "<ul id=\"results\">\n";
-        while($item = mysqli_fetch_array($res)) {
-          echo "\t<li>" .$item['p_text']. "</li>\n";
-        }
-        echo "</ul>\n";
- 
-        mysqli_free_result($res);
-    } else {
-        echo mysqli_error($dbc);
-    }
- ?>
- <?php echo paginate('http://www.petit-kiwi.com/demos/php-pagination/index.php', '?p=', $nbPages, $current); ?>
+			</ul-->
+			
+
+
+
 			<!-- Pagination: End -->
 		</div>
 		<!-- Big Gallery Footer: End -->
-		
+
 		<!-- Delete Dialog: Start -->
 		<div id="dialog-confirm" title="Delete this image?">
 			<p>Do you really want to delete this?</p>
