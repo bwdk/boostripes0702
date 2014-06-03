@@ -14,7 +14,24 @@ $jx_subcats = mysql_query($query_jx_subcats, $cn_bwdkadw) or die(mysql_error());
 $totalRows_jx_subcats = mysql_num_rows($jx_subcats);
 */
 
-
+/////////////// Imports des fichiers de pagination/DB
+    include_once('fonctions/paginate.php');
+	// Calcul du nombre total d'entrées $total dans la table pagination
+    $res = mysqli_query($database, 'SELECT COUNT(*) FROM work');
+    $row = mysqli_fetch_row($res);
+    $total = $row[0];
+	
+	// Libération de la mémoire associée au résultat
+    mysqli_free_result($res);
+	
+	$epp = 3; // nombre d'entrées à afficher par page (entries per page)
+    $nbPages = ceil($total/$epp); // calcul du nombre de pages $nbPages (on arrondit à l'entier supérieur avec la fonction ceil())
+	
+/////////////////////////////////////////////	
+	
+	
+	
+	
 
 $maxRows_jx_works = 9;
 $pageNum_jx_works = 0;
@@ -119,6 +136,45 @@ $totalRows_jx_cat = mysql_num_rows($jx_cat);
 				<li><a href="#">5</a></li>
 				<li><a href="#">Next</a></li>
 			</ul>
+<?php			
+			  // Récupération du numéro de la page courante depuis l'URL avec la méthode GET
+    // S'il s'agit d'un nombre on traite, sinon on garde la valeur par défaut : 1
+    $current = 1;
+    if (isset($_GET['p']) && is_numeric($_GET['p'])) {
+        $page = intval($_GET['p']);
+        if ($page >= 1 && $page <= $nbPages) {
+            // cas normal
+            $current=$page;
+        } else if ($page < 1) {
+            // cas où le numéro de page est inférieure 1 : on affecte 1 à la page courante
+            $current=1;
+        } else {
+            //cas où le numéro de page est supérieur au nombre total de pages : on affecte le numéro de la dernière page à la page courante
+            $current = $nbPages;
+        }
+    }
+ 
+    // $start est la valeur de départ du LIMIT dans notre requête SQL (dépend de la page courante)
+    $start = ($current * $epp - $epp);
+ 
+    // Récupération des données à afficher pour la page courante
+    $qry = "SELECT p_text FROM work LIMIT $start, $epp";
+    $res = @mysqli_query($dbc, $qry);
+ 
+    if ($res) {
+        // Affichage des données
+        echo "<ul id=\"results\">\n";
+        while($item = mysqli_fetch_array($res)) {
+          echo "\t<li>" .$item['p_text']. "</li>\n";
+        }
+        echo "</ul>\n";
+ 
+        mysqli_free_result($res);
+    } else {
+        echo mysqli_error($dbc);
+    }
+ ?>
+ <?php echo paginate('http://www.petit-kiwi.com/demos/php-pagination/index.php', '?p=', $nbPages, $current); ?>
 			<!-- Pagination: End -->
 		</div>
 		<!-- Big Gallery Footer: End -->

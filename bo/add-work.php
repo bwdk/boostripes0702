@@ -107,7 +107,7 @@ if ((isset($_GET['idWork'])) && ($_GET['idWork'] != "")) {
   $Result1 = mysql_query($deleteSQL, $cn_bwdkadw) or die(mysql_error());
 }
 /* paginate */
-$maxRows_jx_works = 5;
+$maxRows_jx_works = 3;
 $pageNum_jx_works = 0;
 if (isset($_GET['pageNum_jx_works'])) {
   $pageNum_jx_works = $_GET['pageNum_jx_works'];
