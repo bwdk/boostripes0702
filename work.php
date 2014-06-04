@@ -1,44 +1,10 @@
 <?php 
 
 require_once('connect/cn-boos.php'); 
+
 $url="";
 
 mysql_select_db($database_cn_bwdkadw, $cn_bwdkadw);
-
-/*
-$query_jx_subcats =" 
-		SELECT idSubcat, nomSubcat
-		FROM subcats 
-		";
-$jx_subcats = mysql_query($query_jx_subcats, $cn_bwdkadw) or die(mysql_error());
-$totalRows_jx_subcats = mysql_num_rows($jx_subcats);
-*/
-
-
-
-$maxRows_jx_works = 9;
-$pageNum_jx_works = 0;
-if (isset($_GET['pageNum_jx_works'])) {
-  $pageNum_jx_works = $_GET['pageNum_jx_works'];
-}
-$startRow_jx_works = $pageNum_jx_works * $maxRows_jx_works;
-
-
-if (isset($_GET['totalRows_jx_works'])) {
-  $totalRows_jx_works = $_GET['totalRows_jx_works'];
-} else {
-  $all_jx_works = mysql_query($query_jx_works);
-  $totalRows_jx_works = mysql_num_rows($all_jx_works);
-}
-$totalPages_jx_works = ceil($totalRows_jx_works/$maxRows_jx_works)-1;
-
-
-/* cn works */
-$query_jx_works = "
-	SELECT * FROM works w LEFT JOIN categorie c ON (c.idCategorie = w.idCategorie) ORDER BY dateWork DESC";//Requête BDD permettant de récupérer toutes les works de la base
-$jx_works = mysql_query($query_jx_works, $cn_bwdkadw) or die(mysql_error());//Ressource contenant les résultats de la requête précédente
-$row_jx_works = mysql_fetch_assoc($jx_works);// enlever cette ligne pour voir s'afficher le premier enregistrement
-$totalRows_jx_works = mysql_num_rows($jx_works);
 
 
 /* cn categorie */
@@ -49,6 +15,15 @@ $query_jx_cat ="
 $jx_cat = mysql_query($query_jx_cat, $cn_bwdkadw) or die(mysql_error());
 $row_jx_cat = mysql_fetch_assoc($jx_cat);
 $totalRows_jx_cat = mysql_num_rows($jx_cat);
+
+
+/* cn works */
+$query_jx_works = "
+	SELECT * FROM works w LEFT JOIN categorie c ON (c.idCategorie = w.idCategorie) ORDER BY dateWork DESC";//Requête BDD permettant de récupérer toutes les works de la base
+$jx_works = mysql_query($query_jx_works, $cn_bwdkadw) or die(mysql_error());//Ressource contenant les résultats de la requête précédente
+$row_jx_works = mysql_fetch_assoc($jx_works);// enlever cette ligne pour voir s'afficher le premier enregistrement
+$totalRows_jx_works = mysql_num_rows($jx_works);
+
 
 ?>
 <!--DOCTYPE-->
@@ -102,7 +77,7 @@ $totalRows_jx_cat = mysql_num_rows($jx_cat);
 			</li>
 			<?php } while ($row_jx_works = mysql_fetch_assoc($jx_works)); ?>
 			<!-- Big Gallery Image: End -->
-			
+
 		</ul>
 		<!-- Gallery Content: End -->
 		
@@ -110,7 +85,7 @@ $totalRows_jx_cat = mysql_num_rows($jx_cat);
 		<div class="padding">
 			
 			
-			<!-- Pagination: Start -->
+			<!-- Pagination: Start >
 			<ul class="pagination right nomargin">
 				<li><a href="#" class="active">1</a></li>
 				<li><a href="#">2</a></li>
@@ -118,11 +93,15 @@ $totalRows_jx_cat = mysql_num_rows($jx_cat);
 				<li><a href="#">4</a></li>
 				<li><a href="#">5</a></li>
 				<li><a href="#">Next</a></li>
-			</ul>
+			</ul-->
+			
+
+
+
 			<!-- Pagination: End -->
 		</div>
 		<!-- Big Gallery Footer: End -->
-		
+
 		<!-- Delete Dialog: Start -->
 		<div id="dialog-confirm" title="Delete this image?">
 			<p>Do you really want to delete this?</p>
