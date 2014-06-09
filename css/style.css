@@ -450,8 +450,12 @@ ul.gallery li:hover {
       }
 	  
 	 div.container.stick{
-		background: none;
-		height: 30px;
+		height: 25px;
+		background:rgba(110, 110, 110, 0.1);
+		-webkit-box-shadow: 10 10px 10px rgba(5, 0, 5, 0.005);
+		-moz-box-shadow: 10 10px 10px rgba(5, 0, 5, 0.005);
+		box-shadow: 10 10px 10px rgba(5, 0, 5, 0.005);
+		border-radius:10px 10px 10px 10px;
 	  }
 	  
 	  /*---------------------------------------------------*/
