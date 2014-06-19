@@ -283,6 +283,11 @@ p.descr-space-l{
 p.descr-space-vid {
 	margin-top: 15px;
 }
+
+.onright{
+	margin-left: 85%;
+	text-transform:capitalize;
+}
  /* Gallery
 -------------------------------------------------------------- */
 

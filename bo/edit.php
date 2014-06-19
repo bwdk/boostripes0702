@@ -43,13 +43,14 @@ if (isset($_SERVER['QUERY_STRING'])) {
 $erreur=""; // initialisation de la variable erreur	
 
 if ((isset($_POST["MM_update"])) && ($_POST["MM_update"] == "form1")) {
-  $updateSQL = sprintf("UPDATE news SET titreNews=%s, titreVideoNews=%s, descriptionNews=%s, categorieIdNews=%s, previewNews=%s, videoNews=%s WHERE idNews=%s",
+  $updateSQL = sprintf("UPDATE news SET titreNews=%s, titreVideoNews=%s, descriptionNews=%s, categorieIdNews=%s, previewNews=%s, videoNews=%s, auteurNews=%s WHERE idNews=%s",
                        GetSQLValueString($_POST['title'], "text"),
 					   GetSQLValueString($_POST['titlev'], "text"),
                        GetSQLValueString($_POST['text'], "text"),
 					   GetSQLValueString($_POST['categorie'], "int"),
 					   GetSQLValueString($_FILES['preview']['name'], "text"),
 					   GetSQLValueString($_POST['video'], "text"),
+					   GetSQLValueString($_POST['auteur'], "text"),
                        GetSQLValueString($_POST['idNews'], "int"));
 
    //***** vérification du format du fichier ****//
@@ -159,6 +160,10 @@ $jx_categories = mysql_query($query_jx_categories, $cn_bwdkadw) or die(mysql_err
       <td nowrap align="right">Video (290 x 193 px)</td>
       <td><textarea name="video" type="text" value="<?php echo htmlentities($row_jx_edit['videoNews'], ENT_COMPAT, ''); ?>" size="64"><?php echo htmlentities($row_jx_edit['videoNews'], ENT_COMPAT, ''); ?></textarea></td>
     </tr>
+	<tr valign="top">
+		<td nowrap align="right">Auteur</td>
+		<td><input type="text" name="auteur" value="<?php echo htmlentities($row_jx_edit['auteurNews'], ENT_COMPAT, ''); ?>" size="32"></td>
+	</tr>
 	<tr valign="baseline">    
           <td align="right">Catégorie</td>
          <td><select id="categorieSlide" name="categorie">

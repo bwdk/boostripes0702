@@ -5,7 +5,7 @@ $url="";
 
 mysql_select_db($database_cn_bwdkadw, $cn_bwdkadw);
 $query_jx_news = "
-	SELECT idNews, titreNews, descriptionNews, YEAR(dateNews) AS annee, DAYOFMONTH(dateNews) AS jour, MONTH(dateNews) AS mois, previewNews, categorieIdNews, idCategorie, nomCategorie, titreVideoNews, videoNews
+	SELECT idNews, titreNews, descriptionNews, YEAR(dateNews) AS annee, DAYOFMONTH(dateNews) AS jour, MONTH(dateNews) AS mois, previewNews, categorieIdNews, idCategorie, nomCategorie, titreVideoNews, videoNews, auteurNews
     FROM news 
 	LEFT JOIN categorie
 	ON categorieIdNews = idCategorie
@@ -46,6 +46,7 @@ $sExtensionImage = ".jpg"; //L'extension unique des images
 	$iTitleVideo = $row_jx_news['titreVideoNews'];
 	$iPict =  $row_jx_news['previewNews'];
 	$lPicture = '<p class="descr-space-l">'.$sDescription.'</p>';
+	$iAuthor = $row_jx_news['auteurNews'];
 
 
 	
@@ -97,8 +98,9 @@ $sExtensionImage = ".jpg"; //L'extension unique des images
 		
 							<?php if ($row_jx_news['videoNews']) { echo '<p class="descr-space-vid">'.$sDescription.'</p>';} ?>
 							<?php if ($iPict) { echo $lPicture;} ?>
-	
-							
+							<span class="onright">
+							<?php echo 'par '.$iAuthor.''  ?>
+							</span>							
 			   </div>
 		
 	</div>
