@@ -54,6 +54,25 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form")) {
 					   GetSQLValueString($_POST['video'], "text"),
                        GetSQLValueString($_FILES['preview']['name'], "text"));
  
+            switch ($erreur){
+                   case 1: // UPLOAD_ERR_INI_SIZE
+                   $erreur="Le fichier dépasse la limite autorisée par le serveur !";
+                   break;
+                   case 2: // UPLOAD_ERR_FORM_SIZE
+                   $erreur= "Le fichier dépasse la limite autorisée dans le formulaire HTML !";
+                   break;
+                   case 3: // UPLOAD_ERR_PARTIAL
+                   $erreur= "L'envoi du fichier a été interrompu pendant le transfert !";
+                   break;
+                   case 4: // UPLOAD_ERR_NO_FILE
+                   $erreur ="Le fichier que vous avez envoyé a une taille nulle !";
+                   break;
+				   case 5: // RESULTAT EXPRESSION REGULIERE SUR LE TYPE
+                   $erreur= "seuls les fichiers de type image sont autorisés!!";
+                   break;
+          }
+ 
+ 
  //***** vérification du format du fichier ****//
  
  if(!preg_match('#jpg|jpeg|bmp|png|gif|tif#i',$_FILES['preview']['name'])) $erreur=5;
@@ -75,23 +94,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form")) {
   //
 
 
-           switch ($erreur){
-                   case 1: // UPLOAD_ERR_INI_SIZE
-                   $erreur="Le fichier dépasse la limite autorisée par le serveur !";
-                   break;
-                   case 2: // UPLOAD_ERR_FORM_SIZE
-                   $erreur= "Le fichier dépasse la limite autorisée dans le formulaire HTML !";
-                   break;
-                   case 3: // UPLOAD_ERR_PARTIAL
-                   $erreur= "L'envoi du fichier a été interrompu pendant le transfert !";
-                   break;
-                   case 4: // UPLOAD_ERR_NO_FILE
-                   $erreur ="Le fichier que vous avez envoyé a une taille nulle !";
-                   break;
-				   case 5: // RESULTAT EXPRESSION REGULIERE SUR LE TYPE
-                   $erreur= "seuls les fichiers de type image sont autorisés!!";
-                   break;
-          }
+
   
 }
 
