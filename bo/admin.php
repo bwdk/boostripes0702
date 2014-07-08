@@ -93,9 +93,6 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form")) {
   
   //
 
-
-
-  
 }
 
 
@@ -104,10 +101,11 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form")) {
 if ((isset($_GET['idNews'])) && ($_GET['idNews'] != "")) {
   $deleteSQL = sprintf("DELETE FROM news WHERE idNews=%s",
                        GetSQLValueString($_GET['idNews'], "int"));
-
   mysql_select_db($database_cn_bwdkadw, $cn_bwdkadw);
   $Result1 = mysql_query($deleteSQL, $cn_bwdkadw) or die(mysql_error());
+	
 }
+
 /* paginate */
 $maxRows_jx_news = 8;
 $pageNum_jx_news = 0;
@@ -125,6 +123,8 @@ $query_jx_news = "SELECT * FROM news ORDER BY dateNews DESC";
 $query_limit_jx_news = sprintf("%s LIMIT %d, %d", $query_jx_news, $startRow_jx_news, $maxRows_jx_news);
 $jx_news = mysql_query($query_limit_jx_news, $cn_bwdkadw) or die(mysql_error());
 $row_jx_news = mysql_fetch_assoc($jx_news);
+
+
 
 if (isset($_GET['totalRows_jx_news'])) {
   $totalRows_jx_news = $_GET['totalRows_jx_news'];
@@ -180,17 +180,21 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
 <hr style="border-top:solid #CCCCCC 1px;"/>
 
 <?php
-	if($_SERVER['REQUEST_METHOD'] == 'POST')
+		if($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
 		   echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
   Article <strong>'.$row_jx_news['titreNews'].'</strong> ajouté.</div>';
 		   }
-	   
 		   
+		if ((isset($_GET['idNews'])) && ($_GET['idNews'] != "")) {
+		echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  Article <strong>'.$row_jx_news['titreNews'].'</strong> supprimé.</div>';
+		   }
+
 ?>
 
 
-	<table border="1" cellpadding="1" cellspacing="1" id="affichePost" class="table-striped">
+	<table border="1" cellpadding="1" cellspacing="1" id="affichePost" class="table table-striped">
 <?php 
 
 		$sDescription = $row_jx_news['descriptionNews']; //Récupère la description de la news
