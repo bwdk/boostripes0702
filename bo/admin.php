@@ -183,7 +183,7 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
 		if($_SERVER['REQUEST_METHOD'] == 'POST')
 		{
 		   echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-  Article <strong>'.$row_jx_news['titreNews'].'</strong> ajouté.</div>';
+  Article <a href="../pages.php?article='.$row_jx_news['idNews'].'"><strong>'.$row_jx_news['titreNews'].'</strong></a> ajouté.</div>';
 		   }
 		   
 		if ((isset($_GET['idNews'])) && ($_GET['idNews'] != "")) {
