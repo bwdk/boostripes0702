@@ -174,7 +174,7 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
 <div class="row-fluid">
 <a href="admin.php"><button>Vers Ajout d'articles</button></a> &nbsp; <a href="add-work.php"><button>Vers Ajout de works</button></a>
 <hr style="border-top:solid #CCCCCC 1px;"/>
-<table border="1" cellpadding="1" cellspacing="1" id="afficheSlides" class="table-striped">
+<table border="1" cellpadding="1" cellspacing="1" id="afficheSlides" class="table table-striped">
    <tr>
     <th>Id</th>
    	<th>Image</th>
@@ -218,10 +218,10 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
 
 <form action="<?php echo $editFormAction; ?>" name="form" method="POST" enctype="multipart/form-data" class="cssform" >
 <input type="hidden" name="MAX_FILE_SIZE" value="999999999" />
-<table id="addSlide" class="table-striped">		
+<table id="addSlide" class="table table-striped">		
     <tr valign="baseline">
           <td align="right">Titre slide</td>
-        <td><input name="title" type="text" id="tltslide" class="fields_admin" value="" size="32" /></td>
+        <td><input name="title" type="text" id="tltslide" class="fields_admin" value="" size="100" /></td>
     </tr>
 
     <tr valign="baseline"> 	

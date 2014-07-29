@@ -124,11 +124,8 @@ $totalRows_jx_works = mysql_num_rows($jx_works);
 </div><!--fin wrap-->
 <div id="push"></div> 
 <!-- FOOTER -->
-<div id="footer">
-      <div class="container stick">
-        <p class="muted credit"><a href="http://html-ipsum.com/">html-ipsum</a>. <a href="<?php echo $url; ?>bo/admin.php">AdminSide</a></p>
-      </div>
-    </div>
+<!-- FOOTER -->
+<?php require_once ($url."inc/footer.inc.php");?>	
 
 	<!-- jQuery libs - Rest are found in the head section (at top) -->
 	<script type="text/javascript" src="js/work/jquery.visualize-tooltip.js"></script>
