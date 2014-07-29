@@ -126,6 +126,7 @@ $totalRows_jx_works = mysql_num_rows($jx_works);
 <!-- FOOTER -->
 <?php require_once ($url."inc/footer.inc.php");?>	
 
+
 	<!-- jQuery libs - Rest are found in the head section (at top) -->
 	<script type="text/javascript" src="js/work/jquery.visualize-tooltip.js"></script>
 	<script type="text/javascript" src="js/work/jquery-animate-css-rotate-scale.js"></script>
