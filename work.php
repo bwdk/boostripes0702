@@ -124,7 +124,6 @@ $totalRows_jx_works = mysql_num_rows($jx_works);
 </div><!--fin wrap-->
 <div id="push"></div> 
 <!-- FOOTER -->
-<!-- FOOTER -->
 <?php require_once ($url."inc/footer.inc.php");?>	
 
 	<!-- jQuery libs - Rest are found in the head section (at top) -->
