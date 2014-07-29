@@ -253,7 +253,7 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
 <h4>Add article : <span style="color:#A3ADED;"></span></h4>
 <form action="<?php echo $editFormAction; ?>" name="form" method="POST" enctype="multipart/form-data" class="cssform" >
 <input type="hidden" name="MAX_FILE_SIZE" value="9999999" />
-<table id="addPostTable" class="table-striped">		
+<table id="addPostTable" class="table table-striped">		
     <tr valign="baseline">
           <td align="right">Titre</td>
         <td><input name="title" type="text" id="title" class="fields_admin" value="" size="32" /></td>
