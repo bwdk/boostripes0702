@@ -53,6 +53,8 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form")) {
                        GetSQLValueString($_POST['author'], "text"),
 					   GetSQLValueString($_POST['video'], "text"),
                        GetSQLValueString($_FILES['preview']['name'], "text"));
+					   
+					   
  
             switch ($erreur){
                    case 1: // UPLOAD_ERR_INI_SIZE
@@ -92,6 +94,8 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form")) {
   $Result1 = mysql_query($insertSQL, $cn_bwdkadw) or die(mysql_error());
   
   //
+  
+  
 
 }
 
@@ -175,20 +179,30 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
 <!--SIDEBAR-->
 
 <!--ZONE CONTENT-->
+
+	  <!-- set up the modal to start hidden and fade in and out -->
+
+
+
+
+ 
+<!-- bootbox code -->
+
+
 <div class="row-fluid">
 <a href="add-work.php"><button>Vers Ajout de works</button></a> &nbsp; <a href="add-slide.php"><button>Vers Ajout de slides</button></a>
 <hr style="border-top:solid #CCCCCC 1px;"/>
 
 <?php
-		if($_SERVER['REQUEST_METHOD'] == 'POST')
+		if((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form"))
 		{
 		   echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
   Article <a href="../pages.php?article='.$row_jx_news['idNews'].'"><strong>'.$row_jx_news['titreNews'].'</strong></a> ajouté.</div>';
 		   }
 		   
-		if ((isset($_GET['idNews'])) && ($_GET['idNews'] != "")) {
+	elseif ((isset($_GET['idNews'])) && ($_GET['idNews'] != "")) {
 		echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-  Article <strong>'.$row_jx_news['titreNews'].'</strong> supprimé.</div>';
+  Article supprimé.</div>';
 		   }
 
 ?>
@@ -221,7 +235,7 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
     <td><?php echo $row_jx_news['dateNews']; ?></td>
   	<td><?php echo $row_jx_news['categorieIdNews']; ?></td>
 	<td><a href="edit.php?idEdit=<?php echo $row_jx_news['idNews']; ?>">OK</a></td>  
-	<td><a href="admin.php?idNews=<?php echo $row_jx_news['idNews']; ?>">OK</a></td>
+	<td><a href="admin.php?idNews=<?php echo $row_jx_news['idNews']; ?>" data-toggle="modal" data-target="#myModal">OK</a></td>
   </tr>
   <?php } while ($row_jx_news = mysql_fetch_assoc($jx_news)); ?>
 </table>
