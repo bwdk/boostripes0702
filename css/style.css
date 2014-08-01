@@ -6,7 +6,40 @@ html {
       -ms-text-size-adjust: 100%;
 }
 
+@font-face {
+  font-family: 'Vera-Bold';
+  src: url('../fonts/Vera-Bold.ttf');
+}
 
+@font-face {
+  font-family: 'Vera';
+  src: url('../fonts/Vera.ttf');
+  }
+  
+body {
+	/*margin: 0;*/
+	font-family: 'Vera', Arial, sans-serif;
+	font-size: 12px;
+	line-height: 20px;
+	color: #222222;
+	/*background-color: #ffffff;*/
+}
+
+a {
+  color: #777777;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #005580;
+  text-decoration: none;
+}
+
+.img-rounded {
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+}
 
 .container {
 	background:rgba(200, 200, 200, 0.2);

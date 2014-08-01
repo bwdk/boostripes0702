@@ -180,13 +180,6 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
 
 <!--ZONE CONTENT-->
 
-	  <!-- set up the modal to start hidden and fade in and out -->
-
-
-
-
- 
-<!-- bootbox code -->
 
 
 <div class="row-fluid">
@@ -235,7 +228,7 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
     <td><?php echo $row_jx_news['dateNews']; ?></td>
   	<td><?php echo $row_jx_news['categorieIdNews']; ?></td>
 	<td><a href="edit.php?idEdit=<?php echo $row_jx_news['idNews']; ?>">OK</a></td>  
-	<td><a href="admin.php?idNews=<?php echo $row_jx_news['idNews']; ?>" data-toggle="modal" data-target="#myModal">OK</a></td>
+	<td><a href="admin.php?idNews=<?php echo $row_jx_news['idNews']; ?>">OK</a></td>
   </tr>
   <?php } while ($row_jx_news = mysql_fetch_assoc($jx_news)); ?>
 </table>

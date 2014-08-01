@@ -56,7 +56,7 @@ define('MAX_LENGHT_NEWS_PREVIEW', 110); //On enleve les pointilles dans le calcu
 <!-- BLOCS -->
 <div class="row-fluid" id="line2">
 	<h4 class="span8 title-blg pull-left">Derniers posts</h4>
-	<h4 class="span4 title-side pull-right">Titres</h4>
+	<h4 class="col-md-3 title-side pull-right">Titres</h4>
 </div>
 
 	<ul class="thumbnails">	

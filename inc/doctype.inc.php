@@ -16,6 +16,7 @@
 <link href="<?php echo $url; ?>css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="<?php echo $url; ?>css/bootstrap-responsive.css&" rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css" href="<?php echo $url; ?>css/admin-style.css"/>
+<link href="<?php echo $url; ?>css/style.css" rel="stylesheet">
 <!--[if IE]>
 <link href="<?php echo $url; ?>css/ie.css" rel="stylesheet" type="text/css">
   <![endif]-->
@@ -23,7 +24,7 @@
 <!--[if IE 8]><html class="lt-ie9 " lang="en"><![endif]-->
 <!--[if gt IE 9]><!--><html lang="en"><!--<![endif]-->
   
-<link href="<?php echo $url; ?>css/style.css" rel="stylesheet">
+
 
 <!-- nivo CSS-->
 <link rel="stylesheet" href="<?php echo $url; ?>js/nivo-slider/themes/dark/dark.css" type="text/css" media="screen" />
