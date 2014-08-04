@@ -12,10 +12,10 @@
 	<!--  LESS -->
     <link href="<?php echo $url; ?>css/styles.less" rel="stylesheet/less" type="text/css" >
 	<!--  CSS -->
-	
+	<link href="<?php echo $url; ?>css/style.css" rel="stylesheet">
 	<link href="<?php echo $url; ?>css/bootstrap.css" rel="stylesheet" type="text/css">
     <link href="<?php echo $url; ?>css/bootstrap-responsive.css&" rel="stylesheet" type="text/css">
-	<link href="<?php echo $url; ?>css/style.css" rel="stylesheet">
+
 	<!-- Imports General CSS and jQuery CSS -->
 	<link href="<?php echo $url; ?>css/work/screen.css" rel="stylesheet" media="screen" type="text/css" />
 	

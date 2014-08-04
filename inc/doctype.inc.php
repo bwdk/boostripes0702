@@ -6,8 +6,9 @@
 	<meta name="description" content="CdiXit" />
 	<meta name="generator" content="Notepad++, Dreamweaver CS6, PSPad" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	
 <!--  LESS -->
 <link href="<?php echo $url; ?>css/styles.less" rel="stylesheet/less" type="text/css" >
 <script src="<?php echo $url; ?>js/less.js" type="text/javascript"></script>
