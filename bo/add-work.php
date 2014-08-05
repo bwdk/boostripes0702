@@ -174,8 +174,23 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
 <!--ZONE CONTENT-->
 
 <div class="row-fluid">
-<a href="admin.php"><button>Vers Ajout d'articles</button></a> &nbsp; <a href="admin.php"><button>Vers Ajout de slides</button></a>
+<a href="admin.php"><button>Vers Ajout d'articles</button></a> &nbsp; <a href="add-slide.php"><button>Vers Ajout de slides</button></a>
 <hr style="border-top:solid #CCCCCC 1px;"/>
+
+<?php
+		if((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form"))
+		{
+		   echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  Article <a href="../pages.php?article='.$row_jx_news['idNews'].'"><strong>'.$row_jx_news['titreNews'].'</strong></a> ajouté.</div>';
+		   }
+		   
+	elseif ((isset($_GET['idWork'])) && ($_GET['idWork'] != "")) {
+		echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  Work supprimé.</div>';
+		   }
+
+?>
+
 <table border="1" cellpadding="1" cellspacing="1" id="afficheWorks" class="table table-striped">
    <tr>
     <th>Id</th>
@@ -198,22 +213,22 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
   </tr>
   <?php } while ($row_jx_works = mysql_fetch_assoc($jx_works)); ?>
 </table>
-<table border="0" class="pager arrows">
-  <tr>
-    <td><?php if ($pageNum_jx_works > 0) { // Show if not first page ?>
-        <a href="<?php printf("%s?pageNum_jx_works=%d%s", $currentPage, 0, $queryString_jx_works); ?>"><img src="First.gif" /></a>
-        <?php } // Show if not first page ?></td>
-    <td><?php if ($pageNum_jx_works > 0) { // Show if not first page ?>
-        <a href="<?php printf("%s?pageNum_jx_works=%d%s", $currentPage, max(0, $pageNum_jx_works - 1), $queryString_jx_works); ?>"><img src="Previous.gif" /></a>
-        <?php } // Show if not first page ?></td>
-    <td><?php if ($pageNum_jx_works < $totalPages_jx_works) { // Show if not last page ?>
-        <a href="<?php printf("%s?pageNum_jx_works=%d%s", $currentPage, min($totalPages_jx_works, $pageNum_jx_works + 1), $queryString_jx_works); ?>"><img src="Next.gif" /></a>
-        <?php } // Show if not last page ?></td>
-    <td><?php if ($pageNum_jx_works < $totalPages_jx_works) { // Show if not last page ?>
-        <a href="<?php printf("%s?pageNum_jx_works=%d%s", $currentPage, $totalPages_jx_works, $queryString_jx_works); ?>"><img src="Last.gif" /></a>
-        <?php } // Show if not last page ?></td>
-  </tr>
-</table>
+<div class="pagination">
+  <ul>
+    <li><?php if ($pageNum_jx_works > 0) { // Show if not first page ?>
+        <a href="<?php printf("%s?pageNum_jx_works=%d%s", $currentPage, 0, $queryString_jx_works); ?>"><i class="icon-fast-backward"></i></a>
+        <?php } // Show if not first page ?></li>
+    <li><?php if ($pageNum_jx_works > 0) { // Show if not first page ?>
+        <a href="<?php printf("%s?pageNum_jx_works=%d%s", $currentPage, max(0, $pageNum_jx_works - 1), $queryString_jx_works); ?>"><i class="icon-chevron-left"></i></a>
+        <?php } // Show if not first page ?></li>
+    <li><?php if ($pageNum_jx_works < $totalPages_jx_works) { // Show if not last page ?>
+        <a href="<?php printf("%s?pageNum_jx_works=%d%s", $currentPage, min($totalPages_jx_works, $pageNum_jx_works + 1), $queryString_jx_works); ?>"><i class="icon-chevron-right"></i></a>
+        <?php } // Show if not last page ?></li>
+    <li><?php if ($pageNum_jx_works < $totalPages_jx_works) { // Show if not last page ?>
+        <a href="<?php printf("%s?pageNum_jx_works=%d%s", $currentPage, $totalPages_jx_works, $queryString_jx_works); ?>"><i class="icon-fast-forward"></i></a>
+        <?php } // Show if not last page ?></li>
+  </ul>
+</div>
 <hr style="border-top:solid #CCCCCC 1px;"/>
 
 <h4>Add image work : <span style="color:#A3ADED;"></span></h4>

@@ -174,6 +174,21 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
 <div class="row-fluid">
 <a href="admin.php"><button>Vers Ajout d'articles</button></a> &nbsp; <a href="add-work.php"><button>Vers Ajout de works</button></a>
 <hr style="border-top:solid #CCCCCC 1px;"/>
+
+<?php
+		if((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form"))
+		{
+		   echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  Article <a href="../pages.php?article='.$row_jx_news['idNews'].'"><strong>'.$row_jx_news['titreNews'].'</strong></a> ajouté.</div>';
+		   }
+		   
+	elseif ((isset($_GET['idSlider'])) && ($_GET['idSlider'] != "")) {
+		echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+  Slide supprimé.</div>';
+		   }
+
+?>
+
 <table border="1" cellpadding="1" cellspacing="1" id="afficheSlides" class="table table-striped">
    <tr>
     <th>Id</th>
@@ -196,22 +211,22 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
   </tr>
   <?php } while ($row_jx_slider = mysql_fetch_assoc($jx_slider)); ?>
 </table>
-<table border="0" class="pager arrows">
-  <tr>
-    <td><?php if ($pageNum_jx_slider > 0) { // Show if not first page ?>
-        <a href="<?php printf("%s?pageNum_jx_slider=%d%s", $currentPage, 0, $queryString_jx_slider); ?>"><img src="First.gif" /></a>
-        <?php } // Show if not first page ?></td>
-    <td><?php if ($pageNum_jx_slider > 0) { // Show if not first page ?>
-        <a href="<?php printf("%s?pageNum_jx_slider=%d%s", $currentPage, max(0, $pageNum_jx_slider - 1), $queryString_jx_slider); ?>"><img src="Previous.gif" /></a>
-        <?php } // Show if not first page ?></td>
-    <td><?php if ($pageNum_jx_slider < $totalPages_jx_slider) { // Show if not last page ?>
-        <a href="<?php printf("%s?pageNum_jx_slider=%d%s", $currentPage, min($totalPages_jx_slider, $pageNum_jx_slider + 1), $queryString_jx_slider); ?>"><img src="Next.gif" /></a>
-        <?php } // Show if not last page ?></td>
-    <td><?php if ($pageNum_jx_slider < $totalPages_jx_slider) { // Show if not last page ?>
-        <a href="<?php printf("%s?pageNum_jx_slider=%d%s", $currentPage, $totalPages_jx_slider, $queryString_jx_slider); ?>"><img src="Last.gif" /></a>
-        <?php } // Show if not last page ?></td>
-  </tr>
-</table>
+<div class="pagination">
+  <ul>
+    <li><?php if ($pageNum_jx_slider > 0) { // Show if not first page ?>
+        <a href="<?php printf("%s?pageNum_jx_slider=%d%s", $currentPage, 0, $queryString_jx_slider); ?>"><i class="icon-fast-backward"></i></a>
+        <?php } // Show if not first page ?></li>
+    <li><?php if ($pageNum_jx_slider > 0) { // Show if not first page ?>
+        <a href="<?php printf("%s?pageNum_jx_slider=%d%s", $currentPage, max(0, $pageNum_jx_slider - 1), $queryString_jx_slider); ?>"><i class="icon-chevron-left"></i></a>
+        <?php } // Show if not first page ?></li>
+    <li><?php if ($pageNum_jx_slider < $totalPages_jx_slider) { // Show if not last page ?>
+        <a href="<?php printf("%s?pageNum_jx_slider=%d%s", $currentPage, min($totalPages_jx_slider, $pageNum_jx_slider + 1), $queryString_jx_slider); ?>"><i class="icon-chevron-right"></i></a>
+        <?php } // Show if not last page ?></li>
+    <li><?php if ($pageNum_jx_slider < $totalPages_jx_slider) { // Show if not last page ?>
+        <a href="<?php printf("%s?pageNum_jx_slider=%d%s", $currentPage, $totalPages_jx_slider, $queryString_jx_slider); ?>"><i class="icon-fast-forward"></i></a>
+        <?php } // Show if not last page ?></li>
+  </ul>
+</div>
 <hr style="border-top:solid #CCCCCC 1px;"/>
 
 <h4>Add image slide : <span style="color:#A3ADED;"></span></h4>

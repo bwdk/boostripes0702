@@ -500,7 +500,7 @@ ul.gallery li:hover {
 		-webkit-box-shadow: 10 10px 10px rgba(5, 0, 5, 0.005);
 		-moz-box-shadow: 10 10px 10px rgba(5, 0, 5, 0.005);
 		box-shadow: 10 10px 10px rgba(5, 0, 5, 0.005);
-		border-radius:10px 10px 10px 10px;
+		/*border-radius:10px 10px 10px 10px;*/
 	  }
 	  
 	  /*---------------------------------------------------*/
