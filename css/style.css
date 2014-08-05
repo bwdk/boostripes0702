@@ -18,7 +18,7 @@ html {
   
 body {
 	/*margin: 0;*/
-	font-family: 'Vera', Arial, sans-serif;
+	font-family: 'Century Gothic','Vera', Arial, sans-serif;
 	font-size: 12px;
 	line-height: 20px;
 	color: #222222;
@@ -90,7 +90,7 @@ a:hover {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
   border-radius: 2px;
-  font-family: 'Vera-Bold', Helvetica, Arial, sans-serif;
+  font-family: 'Century Gothic','Vera-Bold', Helvetica, Arial, sans-serif;
 }
 
 
@@ -116,7 +116,7 @@ a.accordion-toggle {
 .span4.accordeons{
 	height: 80px;
 	position: relative;
-	font-family: 'Vera-Bold', Helvetica, Arial, sans-serif;
+	font-family: 'Century Gothic','Vera-Bold', Helvetica, Arial, sans-serif;
 }
 
 .span4.welcome  {
