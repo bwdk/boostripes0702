@@ -26,8 +26,9 @@
 <!--[if gt IE 9]><!--><html lang="en"><!--<![endif]-->
   
 
-
 <!-- nivo CSS-->
 <link rel="stylesheet" href="<?php echo $url; ?>js/nivo-slider/themes/dark/dark.css" type="text/css" media="screen" />
 <link rel="stylesheet" href="<?php echo $url; ?>js/nivo-slider/nivo-slider.css" type="text/css" media="screen" />
+
+
 

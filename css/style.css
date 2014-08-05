@@ -288,6 +288,13 @@ h4.title-side{
 	height: 100%;
 }
 
+/* Work page*/
+
+h2.title-work{
+	color:#789789;
+	font-size: 23px;
+}
+
 
 /*Pages*/
 .imgpage {margin-right: 8px;}

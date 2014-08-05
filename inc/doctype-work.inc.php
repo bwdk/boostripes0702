@@ -6,7 +6,6 @@
 	<meta name="description" content="CdiXit" />
 	<meta name="generator" content="Notepad++, Dreamweaver CS6, PSPad" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-	
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<!--  LESS -->
@@ -19,7 +18,6 @@
 	<!-- Imports General CSS and jQuery CSS -->
 	<link href="<?php echo $url; ?>css/work/screen.css" rel="stylesheet" media="screen" type="text/css" />
 	
-
 	
 	<!-- IE Stylesheet ie7 - Added in 1.2 -->
 	<!--[if lt IE 8]> <html lang="en" class="ie7"> <![endif]-->

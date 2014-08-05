@@ -33,8 +33,6 @@ $totalRows_jx_works = mysql_num_rows($jx_works);
 <!--HEADER-->
 <?php require_once ($url."inc/header.inc.php");?>
 
-
-
 <!-- Start: Page Wrap -->
 <div class="container_24">
 	
@@ -120,37 +118,8 @@ $totalRows_jx_works = mysql_num_rows($jx_works);
 </div>
 <!-- End: Page Wrap -->
 
-  
-</div><!--fin container-->
-</div><!--fin wrap-->
-<div id="push"></div> 
+
+
 <!-- FOOTER -->
-<div id="footer">
-      <div class="container stick">
-        <p class="muted credit"><a href="http://html-ipsum.com/">html-ipsum</a>. <a href="<?php echo $url; ?>bo/admin.php">AdminSide</a></p>
-      </div>
-    </div>
-
-	<!-- jQuery libs - Rest are found in the head section (at top) -->
-	<script type="text/javascript" src="js/work/jquery.visualize-tooltip.js"></script>
-	<script type="text/javascript" src="js/work/jquery-animate-css-rotate-scale.js"></script>
-	<script type="text/javascript" src="js/work/jquery-ui-1.8.13.custom.min.js"></script>
-	<script type="text/javascript" src="js/work/jquery.poshytip.min.js"></script>
-	<script type="text/javascript" src="js/work/jquery.quicksand.js"></script>
-	<script type="text/javascript" src="js/work/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" src="js/work/jquery.facebox.js"></script>
-	<script type="text/javascript" src="js/work/jquery.uniform.min.js"></script>
-	<script type="text/javascript" src="js/work/jquery.wysiwyg.js"></script>
-	<script type="text/javascript" src="js/work/syntaxHighlighter/shCore.js"></script>
-	<script type="text/javascript" src="js/work/syntaxHighlighter/shBrushXml.js"></script>
-	<script type="text/javascript" src="js/work/syntaxHighlighter/shBrushJScript.js"></script>
-	<script type="text/javascript" src="js/work/syntaxHighlighter/shBrushCss.js"></script>
-	<script type="text/javascript" src="js/work/syntaxHighlighter/shBrushPhp.js"></script>
-	<script type="text/javascript" src="js/work/fileTree/jqueryFileTree.js"></script> <!-- Added in 1.2 -->
-	
-	<!-- jQuery Customization -->
-	<script type="text/javascript" src="js/work/custom-work.js"></script>
-
-	
-</body>
-</html>
+<?php require_once ($url."inc/footer.inc.php");?>	
+ 
