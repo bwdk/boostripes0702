@@ -21,7 +21,7 @@
 @import url(reset.css); 		/* Reset */
 @import url(style.css); 		/* Custom CSS work  */
 @import url(../style.css); 		/* Custom CSS default  */
-/*@import url(../bootstrap.css); 		/*  bootstrap css  */
+@import url(../bootstrap.css); 		/*  bootstrap css  */
 /*@import url(typography.css); 	 /*Typography */
 @import url(forms.css); 		/* Forms */
 
