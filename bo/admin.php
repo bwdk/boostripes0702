@@ -183,7 +183,7 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
 
 
 <div class="row-fluid">
-<a href="add-work.php"><button>Vers Ajout de works</button></a> &nbsp; <a href="add-slide.php"><button>Vers Ajout de slides</button></a>
+<a href="add-work.php"><button type="button" class="btn btn-default">Vers Ajout de works</button></a> &nbsp; <a href="add-slide.php"><button type="button" class="btn btn-default">Vers Ajout de slides</button></a>
 <hr style="border-top:solid #CCCCCC 1px;"/>
 
 <?php
@@ -316,11 +316,6 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
 
 
 	</div>
-	
-
-
-
-
 
 <!--FOOTER-->
 
