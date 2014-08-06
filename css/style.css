@@ -240,9 +240,9 @@ p.margin-bloc
 
 
 h4.title-blg, h4.title-side{
-	color: #888;
+	color: #fff;
 	font-weight: 900;
-	font-family: 'Vera-Bold', Helvetica, Arial, sans-serif;
+	font-family: 'century gothic','Vera-Bold', Helvetica, Arial, sans-serif;
 	text-transform: uppercase;
 	background:rgba(150, 150, 150, 0.3);
 	width: 600px;
