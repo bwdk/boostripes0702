@@ -11,13 +11,16 @@
 							ORDER BY dateSlider DESC Limit 5"; 
 						$resSlider = mysql_query($sSlider) or die('Erreur SQL !'.$sSlider.'<br>'.mysql_error());
 					
-						while ($row_jx_slider = mysql_fetch_array($resSlider)) { 
+						if($row_jx_slider = mysql_fetch_array($resSlider)) { 
 
                         ?>
 						
                 <a href=""><img src="<?php echo $url; ?>img/slide/<?php echo $row_jx_slider['previewSlider']; ?>" alt="" title="<?php echo $row_jx_slider['titleSlider']; ?>" data-transition="slideInLeft"/></a>
          
+				<?php }else{ ?>
+				<img src="<?php echo $url; ?>img/slide/maq.jpg" alt="img_maquette" title="No pic to display" data-transition="none"/>
 				<?php } ?>
+				
             </div>
         </div>
 		</div>
