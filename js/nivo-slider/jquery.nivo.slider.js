@@ -60,17 +60,6 @@
             if(settings.startSlide >= vars.totalSlides) { settings.startSlide = vars.totalSlides - 1; }
             vars.currentSlide = settings.startSlide;
         }
-		
-		//Ajouté par moi: No transition if only one picture
-		if ($("#slider").find("img").length > 1)
-		{
-		  $('#slider').nivoSlider({
-				 effect: 'fade',
-				 animSpeed: '500',
-				 pauseTime: '5000',
-				 startSlide: rand
-			 });
-		}
         
         // Get initial image
         if($(kids[vars.currentSlide]).is('img')){
