@@ -116,7 +116,7 @@ define('MAX_LENGHT_NEWS_PREVIEW', 110); //On enleve les pointilles dans le calcu
 	       <!--http://placehold.it/300x200 pour image -->
 			<li class="span4 blogblock thumbnailhome">
 			<div class="thumbnail">
-			<span class="label"><?php echo $iDay.'.'.$iMonth; ?> <?php echo $row_jx_news['annee']; ?></span>
+			<span class="label"><?php  echo $iDay.'/'.$iMonth.'/'.$row_jx_news['annee']; ?></span>
 			
 			<a href="pages-categorie.php?categorie=<?php echo $row_jx_news['idCategorie'];?>"><span class="label" style="background-color:<?php echo $couleur; ?>"><?php echo $iCateg; ?></span></a>
 			

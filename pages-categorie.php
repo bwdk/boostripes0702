@@ -119,7 +119,7 @@ $sExtensionImage = ".jpg"; //L'extension unique des images
 			<li class="span4 blogblock">
 			<div class="thumbnail">
 
-			<span class="label"><?php echo $iDay.'.'.$iMonth; ?> <?php echo $row_jx_news['annee']; ?></span>
+			<span class="label"><?php  echo $iDay.'/'.$iMonth.'/'.$row_jx_news['annee']; ?></span>
 			
 			<a href="pages-categorie.php?categorie=<?php echo $row_jx_news['idCategorie'];?>"><span class="label" style="background-color:<?php echo $couleur; ?>"><?php echo $iCateg; ?></span></a>
 			
