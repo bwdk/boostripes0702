@@ -1,4 +1,5 @@
 <?php
+
 require_once('connect/cn-boos.php');
 include("inc/function.inc.php");
 
