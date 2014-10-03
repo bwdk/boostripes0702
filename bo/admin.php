@@ -1,13 +1,4 @@
 ﻿<?php
-//Start session
-session_start();
- 
-//Check whether the session variable SESS_MEMBER_ID is present or not
-if(!isset($_SESSION['sess_user_id']) || (trim($_SESSION['sess_user_id']) == '')) {
-header('location: form.php');
-exit();
-}
-
 require_once('../connect/cn-boos.php');
 $url="../";
 
@@ -180,7 +171,6 @@ define('MAX_LENGHT_NEWS_PREVIEW', 82); //On enlève les pointillés dans le calc
 ?>
  <!--DOCTYPE-->
  
-<h1>Hello, <?php echo $_SESSION["sess_username"] ?></h1>
  
  <?php require_once ($url."inc/doctype.inc.php");?>
 <title>AdminSide Home</title>
